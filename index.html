@@ -1,1 +1,32 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    Hasil: {{ hasil }}<br>
+    <input v-model="input1" type="number">
+    <input v-model="input2" type="number"><br>
+    <button v-on:click="hasil = input1 + input2">+</button>
+    <button @click="hasil = input1 - input2">-</button>
+    <button @click="hasil = input1 * input2">*</button>
+    <button @click="hasil = input1 / input2">/</button>
+  </div>
+</body>
+<script>
+  const app = Vue.createApp({
+    data() {
+        return {
+            input1: 0,
+            input2: 0,
+            hasil: 0,
+        }
+    }
+  })
+  app.mount('#app')
+</script>
+</html>
